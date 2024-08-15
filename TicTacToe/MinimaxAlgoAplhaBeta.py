@@ -3,15 +3,17 @@ import os
 
 # the actual game board list
 board = [' ' for _ in range(0, 9)]
+sample_board = [i+1 for i in range(0,9)]
 
 # to draw the game board and a sample board to let know position to place symbols
 def draw_board():
+    print("Positions on the board now are:\n")
     row_first = '| {} | {} | {} |'.format(board[0], board[1], board[2])
     row_second = '| {} | {} | {} |'.format(board[3], board[4], board[5])
     row_third = '| {} | {} | {} |'.format(board[6], board[7], board[8])
-    row_first_sample = '| 1 | 2 | 3 |'
-    row_second_sample = '| 4 | 5 | 6 |'
-    row_third_sample = '| 7 | 8 | 9 |'
+    row_first_sample = '| {} | {} | {} |'.format(sample_board[0], sample_board[1], sample_board[2])
+    row_second_sample = '| {} | {} | {} |'.format(sample_board[3], sample_board[4], sample_board[5])
+    row_third_sample = '| {} | {} | {} |'.format(sample_board[6], sample_board[7], sample_board[8])
     print()
     print(row_first+"\t\t"+row_first_sample)
     print(row_second+"\t\t"+row_second_sample)
@@ -69,6 +71,7 @@ def vacant_space(pos):
 # to insert the player symbol into the board
 def insert_playing_symbol(letter, pos):
     board[pos - 1] = letter
+    sample_board[pos - 1] = ' '
 
 # to check if the board is full for draw condition
 def is_board_full():
